@@ -7,14 +7,36 @@
   </ul>
 <% end %>
 
+<%= render 'users/user', user: @user %>
+<%= render 'books/book', book: @book %>
 
+
+
+<div class="col-xl-9">
 <h1>Books</h1>
+<table class="table">
+
+<tr>
+    <th></th>
+    <th>Title</th>
+    <th>Opinion</th>
+</tr>
+
+
+
 <% @books.each do |book| %>
-
-  <%= link_to user_path(book.user_id) do %>
-    <%= image_tag book.user.get_profile_image(100,100) %>
-
+<tr>
+  <td><%= link_to user_path(book.user_id) do %>
+    <%= image_tag book.user.get_profile_image(100,100) %></td>
   <% end %>
-    <%= link_to book.name, book_path(book.id) %>
-    <%= book.body %>
+
+
+  <td><%= link_to book.name, book_path(book.id) %></td>
+  <td><%= book.body %></td>
+</tr>
 <% end %>
+
+</table>
+</div>
+</div>
+</div>

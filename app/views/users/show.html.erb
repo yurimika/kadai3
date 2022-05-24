@@ -1,51 +1,7 @@
-<div class="container px-5 px-sm-0">
-<div class="row">
-<div class="col-3">
+<%= render 'users/user', user: @user %>
+<%= render 'books/book', book: @book %>
 
-<table class="table table-user">
-
-<h1>User info</h1>
-<thead>
-    <tr>
-        <%= image_tag @user.get_profile_image(100,100) %>
-    </tr>
-</thead>
-<tbody>
- <tr>
-  <th>Name</th>
-  <th><%= @user.name %></th>
- </tr>
- <tr>
-   <th>Introduction</th>
-   <th><%= @user.Body %></th>
- </tr>
- <tr>
-   <th>
-     <%= link_to "",edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
-   </th>
- </tr>
-  </tbody>
-</table>
-
-
-
-<h1>New book</h1>
-<%= form_with model: @book, url: books_path, method: :post do |f| %>
-<h5>Title</h5>
- <%= f.text_field :name %>
-
- <h5>Opinion</h5>
- <%= f.text_area :body %>
-
- <br><%= f.submit 'Create Book', class: "col-xs-12 btn btn-success" %></br>
- <% end %>
-
-</div>
-
-
-
-
-<div class="col-9">
+<div class="col-xl-9">
 
 <h1>Books</h1>
 <table class="table">
