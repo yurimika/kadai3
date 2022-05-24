@@ -7,6 +7,8 @@
   </ul>
 <% end %>
 
+<div class="container px-5 px-sm-0">
+
 <h1>User info</h1>
 <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
 <h4>Name</h4>
@@ -16,6 +18,7 @@
 <h4>Introduction</h4>
 <%= f.text_area :Body %>
 
-<%= f.submit 'update user' %>
+<br><%= f.submit 'update user' %></br>
 
 <% end %>
+</div>
