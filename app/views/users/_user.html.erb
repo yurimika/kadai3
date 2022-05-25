@@ -1,6 +1,7 @@
-<div class="container px-5 px-sm-0">
+<div class=" px-5 px-sm-0">
+<div class="container">
 <div class="row">
-<div class="col-xl-3">
+<div class="col-md-3">
 
 <table class="table table-user">
 
@@ -17,13 +18,19 @@
  </tr>
  <tr>
    <th>Introduction</th>
-   <th><%= user.Body %></th>
+   <th><%= user.introduction %></th>
  </tr>
  <tr>
    <th class="row">
-     <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+    <% if user.id == current_user.id %>
+     <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
      <i class="fas fa-user-cog"></i>
      <% end %>
+    <% else %>
+     <%= link_to user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+     <i class="fas fa-user-cog"></i>
+     <% end %>
+    <% end %>
    </th>
  </tr>
   </tbody>
